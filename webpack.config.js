@@ -14,11 +14,11 @@ fs.readdirSync('node_modules')
     });
 
 module.exports = {
-    entry: './server.js',
+    entry: './smurfs.js',
     target: 'node',
     output: {
         path: path.join(__dirname, 'build'),
-        filename: 'server.js'
+        filename: 'smurfs.js'
     },
     module: {
         loaders: [

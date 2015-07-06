@@ -5,7 +5,7 @@
   "main": "smurfs.js",
   "scripts": {
     "test": "test",
-    "start": "nodemon smurfs.js"
+    "start": "nodemon build/smurfs.js"
   },
   "repository": {
     "type": "git",
