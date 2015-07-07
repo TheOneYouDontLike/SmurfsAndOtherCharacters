@@ -16,7 +16,6 @@ fs.readdirSync('node_modules')
 module.exports = {
     entry: {
         smurfs: './smurfs.js',
-        randomizer: './randomizer.js'
     },
     target: 'node',
     output: {

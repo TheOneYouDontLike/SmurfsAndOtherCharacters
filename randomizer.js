@@ -6,14 +6,14 @@ function getRandom(start, end) {
     return Math.floor((Math.random() * end) + start);
 }
 
-fs.readFile('./smurfs.json', (error, data) => {
-    let smurfs = JSON.parse(data);
+function getRandomSmurf() {
+    let smurfs = JSON.parse(fs.readFileSync('./smurfs.json'));
 
     let randomNumber = getRandom(0, smurfs.length);
 
-    console.log(randomNumber);
+    return smurfs[randomNumber];
+}
 
-    let randomSmurf = smurfs[randomNumber];
-
-    console.log(randomSmurf);
-});
+export default {
+    getRandomSmurf: getRandomSmurf
+};

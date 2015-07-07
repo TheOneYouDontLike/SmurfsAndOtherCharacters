@@ -2,6 +2,7 @@
 
 import fs from 'fs';
 import liner from './liner';
+import randomizer from './randomizer';
 
 function fillSmurfsArray(callback) {
     let array = [];
@@ -21,9 +22,9 @@ function fillSmurfsArray(callback) {
 }
 
 fillSmurfsArray(function(smurfsArray) {
-    console.log(smurfsArray);
-
     fs.writeFile('smurfs.json', JSON.stringify(smurfsArray), function(error) {
         if (error) console.log(error);
     });
 });
+
+console.log('Random smurf: ', randomizer.getRandomSmurf());
