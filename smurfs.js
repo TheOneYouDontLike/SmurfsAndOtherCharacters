@@ -4,27 +4,35 @@ import fs from 'fs';
 import liner from './liner';
 import randomizer from './randomizer';
 
-function fillSmurfsArray(callback) {
-    let array = [];
-    let source = fs.createReadStream('./smurfs.txt');
+function readFromFileLineByLine(filePath, readLineCallback, endReadingCallback) {
+    let source = fs.createReadStream(filePath);
     source.pipe(liner);
 
     liner.on('readable', function () {
         let line;
         while (line = liner.read()) {
-            array.push({ name: line.trim() });
+            readLineCallback(line);
         }
     });
 
     liner.on('end', function() {
-        callback(array);
+        endReadingCallback(endReadingCallback);
     });
 }
 
-fillSmurfsArray(function(smurfsArray) {
-    fs.writeFile('smurfs.json', JSON.stringify(smurfsArray), function(error) {
+let newArray = [];
+let filePath = './smurfs.txt';
+
+function readLineCallback(line) {
+    newArray.push({ name: line.trim() });
+}
+
+function endReadingCallback() {
+    fs.writeFile('smurfs.json', JSON.stringify(newArray), function(error) {
         if (error) console.log(error);
     });
-});
+}
+
+readFromFileLineByLine(filePath, readLineCallback, endReadingCallback);
 
 console.log('Random smurf: ', randomizer.getRandomSmurf());
