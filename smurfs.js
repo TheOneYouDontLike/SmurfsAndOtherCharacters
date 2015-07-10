@@ -36,4 +36,4 @@ let filenameFromCommandLine = process.argv[2];
 readFromFileLineByLine('./' + filenameFromCommandLine, readLineCallback, endReadingCallback);
 
 console.log('Random smurf: ', randomizer.getRandomSmurf());
-console.log(process.argv);
+console.log('Random gummi bear: ', randomizer.getRandomGummiBear());

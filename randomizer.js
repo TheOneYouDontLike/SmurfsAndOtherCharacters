@@ -14,6 +14,15 @@ function getRandomSmurf() {
     return smurfs[randomNumber];
 }
 
+function getRandomGummiBear() {
+    let gummiBears = JSON.parse(fs.readFileSync('./gummibears.json'));
+
+    let randomNumber = getRandom(0, gummiBears.length);
+
+    return gummiBears[randomNumber];
+}
+
 export default {
-    getRandomSmurf: getRandomSmurf
+    getRandomSmurf: getRandomSmurf,
+    getRandomGummiBear: getRandomGummiBear
 };
