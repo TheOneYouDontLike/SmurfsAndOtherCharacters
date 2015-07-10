@@ -21,7 +21,6 @@ function readFromFileLineByLine(filePath, readLineCallback, endReadingCallback) 
 }
 
 let newArray = [];
-let filePath = './smurfs.txt';
 
 function readLineCallback(line) {
     newArray.push({ name: line.trim() });
@@ -33,6 +32,8 @@ function endReadingCallback() {
     });
 }
 
-readFromFileLineByLine(filePath, readLineCallback, endReadingCallback);
+let filenameFromCommandLine = process.argv[2];
+readFromFileLineByLine('./' + filenameFromCommandLine, readLineCallback, endReadingCallback);
 
 console.log('Random smurf: ', randomizer.getRandomSmurf());
+console.log(process.argv);
