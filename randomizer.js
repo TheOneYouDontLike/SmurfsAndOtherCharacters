@@ -22,7 +22,16 @@ function getRandomGummiBear() {
     return gummiBears[randomNumber];
 }
 
+function getRandomSuperhero() {
+    let superheroes = JSON.parse(fs.readFileSync('./superheroes.json'));
+
+    let randomNumber = getRandom(0, superheroes.length);
+
+    return superheroes[randomNumber];
+}
+
 export default {
     getRandomSmurf: getRandomSmurf,
-    getRandomGummiBear: getRandomGummiBear
+    getRandomGummiBear: getRandomGummiBear,
+    getRandomSuperhero: getRandomSuperhero
 };

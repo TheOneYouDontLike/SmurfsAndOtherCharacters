@@ -37,3 +37,4 @@ readFromFileLineByLine('./' + filenameFromCommandLine, readLineCallback, endRead
 
 console.log('Random smurf: ', randomizer.getRandomSmurf());
 console.log('Random gummi bear: ', randomizer.getRandomGummiBear());
+console.log('Random superhero: ', randomizer.getRandomSuperhero());
